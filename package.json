@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/TomIHAU/week10hw/issues"
   },
-  "homepage": "https://github.com/TomIHAU/week10hw#readme"
+  "homepage": "https://github.com/TomIHAU/week10hw#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
 }
