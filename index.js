@@ -45,9 +45,10 @@ const addEmployee = () => {
   return inquirer
     .prompt([
       {
-        type: "input",
+        type: "list",
         name: "position",
-        message: "what is the employee's role at the company?",
+        choices: ["Engineer", "Intern"],
+        message: "What position is the employee?",
       },
       {
         type: "input",
@@ -64,12 +65,7 @@ const addEmployee = () => {
         name: "email",
         message: "What is the employee's email?",
       },
-      {
-        type: "list",
-        name: "position",
-        choices: ["Engineer", "Intern"],
-        message: "What position is the employee?",
-      },
+
       {
         when: (input) => input.position === "Engineer",
         type: "input",
@@ -107,13 +103,19 @@ const addEmployee = () => {
         );
         team.push(employee);
       }
+      if (input.anotherEmployee) {
+        return addEmployee();
+      } else {
+        return team;
+      }
     });
 };
 
-const writeFile = data => {
-    fs.writeFile('./dist/index.html', data, (err) =>
+const writeFile = (data) => {
+  fs.writeFile("./dist/index.html", data, (err) =>
     err ? console.log(err) : console.log("Successfully created html")
   );
+};
 //true false if so i can create another employee or finish loop and create html
 addManager().then(addEmployee).then; //generate html or something
-.writeFile
+//.writeFile
