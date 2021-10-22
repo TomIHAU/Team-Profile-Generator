@@ -27,7 +27,7 @@ const addManager = () => {
       },
       {
         type: "input",
-        name: "officeNumber",
+        name: "officeNum",
         message: "What is the Managers office number?",
       },
     ])
@@ -36,7 +36,7 @@ const addManager = () => {
         input.name,
         input.id,
         input.email,
-        input.officeNumber
+        input.officeNum
       );
       team.push(manager);
     });
@@ -64,11 +64,29 @@ const addEmployee = () => {
         name: "email",
         message: "What is the employee's email?",
       },
-      /// if statement for eng or int
       {
+        type: "list",
+        name: "position",
+        choices: ["Engineer", "Intern"],
+        message: "What position is the employee?",
+      },
+      {
+        when: (input) => input.position === "Engineer",
         type: "input",
-        name: "officeNumber",
-        message: "What is the Managers name?",
+        name: "github",
+        message: "What is the employee's github username?",
+      },
+      {
+        when: (input) => input.position === "Intern",
+        type: "input",
+        name: "school",
+        message: "What school is the intern from?",
+      },
+      {
+        type: "confirm",
+        name: "anotherEmployee",
+        message: "Would you like to add more employees?",
+        default: false,
       },
     ])
     .then((input) => {
@@ -91,5 +109,11 @@ const addEmployee = () => {
       }
     });
 };
+
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, (err) =>
+    err ? console.log(err) : console.log("Successfully created html")
+  );
 //true false if so i can create another employee or finish loop and create html
 addManager().then(addEmployee).then; //generate html or something
+.writeFile
