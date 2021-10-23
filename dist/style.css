@@ -4,12 +4,16 @@ body {
 }
 header {
   padding: 3%;
-  background-color: brown;
+  background-color: rgb(37, 15, 0);
   text-align: center;
 }
 h1 {
   color: white;
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+main {
+  margin: 0 8%;
 }
 .card {
   min-width: 250px;
@@ -20,12 +24,12 @@ h1 {
 }
 .cardRow {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 .card-header {
   width: 100%;
-  background-color: blue;
+  background-color: #3a3af7;
   border-radius: 5px 5px 0 0;
   padding: 20px 0 10px;
 }

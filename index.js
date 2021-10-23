@@ -5,6 +5,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
+const generateHTML = require("./src/generateHTML");
 let team = [];
 
 const addManager = () => {
@@ -41,6 +42,7 @@ const addManager = () => {
       team.push(manager);
     });
 };
+
 const addEmployee = () => {
   return inquirer
     .prompt([
@@ -117,5 +119,15 @@ const writeFile = (data) => {
   );
 };
 //true false if so i can create another employee or finish loop and create html
-addManager().then(addEmployee).then; //generate html or something
+addManager()
+  .then(addEmployee)
+  .then((team) => {
+    return generateHTML(team);
+  })
+  .then((input) => {
+    return writeFile(input);
+  })
+  .catch((err) => {
+    console.log(err);
+  }); //generate html or something
 //.writeFile
