@@ -16,6 +16,7 @@ getEngineer = (engineer) => {
         <p>
             Github:
             <a href="https://github.com/${engineer.github}"
+            target="_blank"
             >${engineer.github}</a
             >
         </p>
