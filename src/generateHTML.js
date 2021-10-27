@@ -64,19 +64,16 @@ getManager = (manager) => {
 };
 
 function determine(data) {
-  console.log("this worked");
-  console.log(data);
   data.forEach((member) => {
     if (member.getRole() === "Engineer") {
-      console.log("hi en");
       HTMLInput += getEngineer(member);
     }
+
     if (member.getRole() === "Intern") {
-      console.log("hi in");
       HTMLInput += getIntern(member);
     }
+
     if (member.getRole() === "Manager") {
-      console.log("hi man");
       HTMLInput += getManager(member);
     }
   });

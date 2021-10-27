@@ -9,6 +9,11 @@ const generateHTML = require("./src/generateHTML");
 let team = [];
 
 const addManager = () => {
+  console.log(`
+    =================
+        Manager
+    =================
+    `);
   return inquirer
     .prompt([
       {
@@ -44,6 +49,11 @@ const addManager = () => {
 };
 
 const addEmployee = () => {
+  console.log(`
+    =================
+      Next Employee
+    =================
+    `);
   return inquirer
     .prompt([
       {
@@ -115,10 +125,16 @@ const addEmployee = () => {
 
 const writeFile = (data) => {
   fs.writeFile("./dist/index.html", data, (err) =>
-    err ? console.log(err) : console.log("Successfully created html")
+    err
+      ? console.log(err)
+      : console.log(`
+    =================
+      Team Created
+    =================
+    `)
   );
 };
-//true false if so i can create another employee or finish loop and create html
+
 addManager()
   .then(addEmployee)
   .then((team) => {
@@ -129,5 +145,4 @@ addManager()
   })
   .catch((err) => {
     console.log(err);
-  }); //generate html or something
-//.writeFile
+  });
